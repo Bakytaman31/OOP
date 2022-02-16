@@ -9,7 +9,7 @@ public class OptimaBank extends Bank {
 
     @Override
     public boolean validate(int clientIdFrom) {
-        System.out.println("OptimaBank: проверяею ваши учетные данные до перевода средств");
+        System.out.println("OptimaBank: проверяею ваши учетные данные до перевода средств ");
         if (foundClient(clientIdFrom)) {
             System.out.println("OptimaBank: проверка успешно пройдена");
             return true;
