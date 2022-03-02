@@ -9,27 +9,23 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     @Before("execution(public boolean Auditing.validate(*,*,*))")
     public void beforeTransferValidate() {
-        System.out.println("beforeValidate: попытка проверки учетных даннных до перевода средств");
+        System.out.println("beforeValidate: trying to check you data before transfer");
     }
 
-    //    @Before("execution(public void validate())")
-//    public void beforeBankTransferValidate() {
-//        System.out.println("beforeBankValidate: попытка проверки учетных даннных до перевода средств");
-//    }
 
     @Before("execution(public void Auditing.transferInstantiate(*,*,*,*,*))")
     public void beforeTransferInstantiate() {
-        System.out.println("beforeTransferInstantiate: попытка банка создать экземпляр сервиса перевода средств");
+        System.out.println("beforeTransferInstantiate: trying to create an instance of transfer service");
     }
 
     @Before("execution(public void Auditing.success(*))")
     public void beforeSuccess() {
-        System.out.println("beforeSuccess: банк успешно выполнил перевод средств");
+        System.out.println("beforeSuccess: bank transferred success");
     }
 
     @Before("execution(public void Auditing.rollback(*))")
     public void beforeRollback() {
-        System.out.println("beforeRollback: банк отказал в операции перевода средств");
+        System.out.println("beforeRollback: bank denied your transfer");
     }
 
 }

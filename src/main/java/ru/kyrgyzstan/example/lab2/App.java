@@ -10,10 +10,10 @@ public class App {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfig.class);
 
         Auditing auditing = context.getBean("Auditing", Auditing.class);
-        Bank optimaBank = context.getBean("OptimaBank", OptimaBank.class);
-        Bank demirBank = context.getBean("DemirBank", DemirBank.class);
-        optimaBank.createClient("Artur", 100);
-        demirBank.createClient("Nurislam", 0);
+        Bank optimaBank = context.getBean("TinkoffBank", Tinkoff.class);
+        Bank demirBank = context.getBean("BTABank", BTA.class);
+        optimaBank.createClient("Jake", 100);
+        demirBank.createClient("Sam", 0);
 
         optimaBank.sout();
         demirBank.sout();

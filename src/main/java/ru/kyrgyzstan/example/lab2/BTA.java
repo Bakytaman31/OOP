@@ -2,19 +2,19 @@ package ru.kyrgyzstan.example.lab2;
 
 import java.util.ArrayList;
 
-public class DemirBank extends Bank {
-    public DemirBank(String name, ArrayList<Client> clients) {
+public class BTA extends Bank {
+    public BTA(String name, ArrayList<Client> clients) {
         super(name, clients);
     }
 
     @Override
     public boolean validate(int clientIdFrom) {
-        System.out.println("DemirBank: проверяею ваши учетные данные до перевода средств");
+        System.out.println("BTA: Checking personal data before transfer ");
         if (foundClient(clientIdFrom)) {
-            System.out.println("DemirBank: проверка успешно пройдена");
+            System.out.println("BTA: Access granted!");
             return true;
         }
-        System.out.println("DemirBank: недействительный пользователь!");
+        System.out.println("BTA: Access denied!");
         return false;
     }
 
@@ -25,13 +25,13 @@ public class DemirBank extends Bank {
 
     @Override
     public void success() {
-        System.out.println("DemirBank: транзакция прошла успешно");
+        System.out.println("BTA: transfer successfully!");
 
     }
 
     @Override
     public void rollback() {
-        System.out.println("DemirBank: ошибка! транзакция не выполнена");
+        System.out.println("BTA: Error! Transfer denied");
     }
 
     @Override
@@ -65,7 +65,7 @@ public class DemirBank extends Bank {
     }
 
     public void sout(){
-        System.out.println("DemirBank:");
+        System.out.println("BTA:");
         for (Client i : this.clients) {
             System.out.printf(
                     "   Id: %d    Name: %30s   Balance: %.2f%n",

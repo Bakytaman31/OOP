@@ -16,12 +16,12 @@ public abstract class Bank {
     }
 
     public boolean validate(int clientIdFrom) {
-        System.out.println("Банк: проверяею ваши учетные данные до перевода средств");
+        System.out.println("Bank: Checking personal data before transfer");
         if (foundClient(clientIdFrom)) {
-            System.out.println("Банк: проверка успешно пройдена");
+            System.out.println("Bank: access granted");
             return true;
         }
-        System.out.println("Банк: недействительный(-ые) пользователь(-и)");
+        System.out.println("Bank: access denied");
         return false;
     }
 
@@ -32,11 +32,11 @@ public abstract class Bank {
     }
 
     public void success() {
-        System.out.println("Банк: транзакция прошла успешно");
+        System.out.println("Bank: transfer successfully!");
     }
 
     public void rollback() {
-        System.out.println("Банк: ошибка! транзакция не выполнена");
+        System.out.println("Bank: Error! Transfer denied");
     }
 
     public void sout() {

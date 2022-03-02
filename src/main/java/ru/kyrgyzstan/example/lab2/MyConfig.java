@@ -17,13 +17,13 @@ public class MyConfig {
     }
 
     @Bean
-    public OptimaBank OptimaBank() {
-        return new OptimaBank("OptimaBank", new ArrayList<Client>());
+    public Tinkoff OptimaBank() {
+        return new Tinkoff("OptimaBank", new ArrayList<Client>());
     }
 
     @Bean
-    public DemirBank DemirBank() {
-        return new DemirBank("DemirBank", new ArrayList<Client>());
+    public BTA DemirBank() {
+        return new BTA("DemirBank", new ArrayList<Client>());
     }
 
     @Bean

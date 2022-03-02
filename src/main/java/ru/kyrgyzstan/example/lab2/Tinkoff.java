@@ -2,19 +2,19 @@ package ru.kyrgyzstan.example.lab2;
 
 import java.util.ArrayList;
 
-public class OptimaBank extends Bank {
-    public OptimaBank(String name, ArrayList<Client> clients) {
+public class Tinkoff extends Bank {
+    public Tinkoff(String name, ArrayList<Client> clients) {
         super(name, clients);
     }
 
     @Override
     public boolean validate(int clientIdFrom) {
-        System.out.println("OptimaBank: проверяею ваши учетные данные до перевода средств ");
+        System.out.println("Tinkoff: Checking personal data before transfer ");
         if (foundClient(clientIdFrom)) {
-            System.out.println("OptimaBank: проверка успешно пройдена");
+            System.out.println("Tinkoff: Access granted!");
             return true;
         }
-        System.out.println("OptimaBank: недействительный пользователь!");
+        System.out.println("Tinkoff: Access denied!");//
         return false;
     }
 
@@ -25,13 +25,13 @@ public class OptimaBank extends Bank {
 
     @Override
     public void success() {
-        System.out.println("OptimaBank: транзакция прошла успешно");
+        System.out.println("Tinkoff: transfer successfully!");
 
     }
 
     @Override
     public void rollback() {
-        System.out.println("OptimaBank: ошибка! транзакция не выполнена");
+        System.out.println("Tinkoff: Error! Transfer denied");
     }
 
     @Override
@@ -65,7 +65,7 @@ public class OptimaBank extends Bank {
     }
 
     public void sout(){
-        System.out.println("OptimaBank:");
+        System.out.println("Tinkoff:");
         for (Client i : this.clients) {
             System.out.printf(
                     "   Id: %d    Name: %30s   Balance: %.2f%n",
